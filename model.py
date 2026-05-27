@@ -131,7 +131,7 @@ class Block(nn.Module):
         return x
 
 # super simple bigram model
-class BigramLanguageModel(nn.Module):
+class GPTLanguageModel(nn.Module):
 
     def __init__(self):
         super().__init__()
@@ -180,7 +180,7 @@ class BigramLanguageModel(nn.Module):
             idx = torch.cat((idx, idx_next), dim=1) # (B,T+1)
         return idx
 
-model = BigramLanguageModel()
+model = GPTLanguageModel()
 m = model.to(device)
 
 # create a Pytorch optimizer
@@ -205,4 +205,4 @@ for iter in range(max_iters):
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
 print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
-torch.save(model.state_dict(), "output.pt")
+open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
