@@ -1,0 +1,23 @@
+# Previous version
+bigram.py
+
+# Data
+input.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
